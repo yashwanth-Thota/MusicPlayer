@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
         // Guideflow: the "Guide me" button and the step-by-step overlay (no-op when the server URL is blank).
-        com.guideflow.android.Guideflow.install(this, com.example.yashwanth.echo.BuildConfig.GUIDEFLOW_URL, 88)
+        com.guideflow.android.Guideflow.install(this, com.example.yashwanth.echo.BuildConfig.GUIDEFLOW_URL, com.example.yashwanth.echo.BuildConfig.GUIDEFLOW_CLIENT_ID, 88)
 
 
 

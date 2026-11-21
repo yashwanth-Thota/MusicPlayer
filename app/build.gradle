@@ -26,10 +26,16 @@ android {
     buildTypes {
         // The Guideflow server the guide asks. 10.0.2.2 is the host Mac as seen from the emulator.
         // Override for a phone: ./gradlew assembleDebug -PguideflowUrl=http://192.168.x.x:8812
-        debug { buildConfigField "String", "GUIDEFLOW_URL", "\"${project.findProperty('guideflowUrl') ?: 'http://10.0.2.2:8812'}\"" }
+        // The server only answers requests that carry a client id (from `guideflow init`; publishable, not a secret).
+        // Pass it at build time so it is not in source: ./gradlew assembleDebug -PguideflowClientId=gfc_...
+        debug {
+            buildConfigField "String", "GUIDEFLOW_URL", "\"${project.findProperty('guideflowUrl') ?: 'http://10.0.2.2:8812'}\""
+            buildConfigField "String", "GUIDEFLOW_CLIENT_ID", "\"${project.findProperty('guideflowClientId') ?: ''}\""
+        }
         release {
             minifyEnabled false
             buildConfigField "String", "GUIDEFLOW_URL", "\"\"" // no guide in release builds until a server is configured
+            buildConfigField "String", "GUIDEFLOW_CLIENT_ID", "\"\""
         }
     }
     lint { abortOnError false }

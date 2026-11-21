@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/listBackground">
+    <android.support.v7.widget.RecyclerView android:id="@+id/favouritesRecyler"
+        android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="68dp" />
+    <TextView android:id="@+id/nofavourites" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_centerInParent="true" android:text="You have no favourites yet" android:textColor="@color/trackArtist"
+        android:textSize="16sp" android:visibility="invisible" />
+    <RelativeLayout android:id="@+id/hiddenBarFavScreen" android:layout_width="match_parent" android:layout_height="68dp"
+        android:layout_alignParentBottom="true" android:background="@drawable/bg_bottom_bar" android:visibility="invisible">
+        <ImageView android:id="@+id/deaultMusic" android:layout_width="40dp" android:layout_height="40dp"
+            android:layout_centerVertical="true" android:layout_marginStart="16dp" android:src="@drawable/echo_logo" />
+        <TextView android:id="@+id/nowPlayingLabel" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_alignTop="@id/deaultMusic" android:layout_marginStart="14dp" android:layout_toEndOf="@id/deaultMusic"
+            android:text="Now playing" android:textColor="#b7b7c4" android:textSize="11sp" />
+        <TextView android:id="@+id/songTitleFavScreen" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_below="@id/nowPlayingLabel" android:layout_marginStart="14dp" android:layout_toEndOf="@id/deaultMusic"
+            android:layout_toStartOf="@+id/playpauseButton" android:ellipsize="end" android:maxLines="1"
+            android:textColor="#ffffff" android:textSize="15sp" />
+        <ImageButton android:id="@+id/playpauseButton" android:layout_width="44dp" android:layout_height="44dp"
+            android:layout_alignParentEnd="true" android:layout_centerVertical="true" android:layout_marginEnd="16dp"
+            android:background="@drawable/pause_icon" />
+    </RelativeLayout>
+</RelativeLayout>

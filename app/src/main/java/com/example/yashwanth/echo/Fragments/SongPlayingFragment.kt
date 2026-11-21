@@ -136,7 +136,7 @@ class SongPlayingFragment : Fragment() {
                     updateTextViews(currentSongHelper?.songTitle as String, currentSongHelper?.songArtist as String)
                     mediaPlayer?.reset()
                     try {
-                        mediaPlayer?.setDataSource(myActivity, Uri.parse(currentSongHelper?.songPath))
+                        mediaPlayer?.setDataSource(myActivity!!, Uri.parse(currentSongHelper?.songPath))
                         mediaPlayer?.prepare()
                         mediaPlayer?.start()
                         processInformaation(mediaPlayer as MediaPlayer)
@@ -168,7 +168,7 @@ class SongPlayingFragment : Fragment() {
         fun processInformaation(mediaPlayer: MediaPlayer) {
             val finalTime = mediaPlayer?.duration
             val startTime = mediaPlayer?.currentPosition
-            seekbar?.max = finalTime
+            seekbar?.max = finalTime ?: 0
             startTimeText?.setText(String.format("%d:%d",
                     TimeUnit.MILLISECONDS.toMinutes(startTime?.toLong() as Long),
                     TimeUnit.MILLISECONDS.toSeconds(startTime?.toLong() as Long) -
@@ -177,7 +177,7 @@ class SongPlayingFragment : Fragment() {
                     TimeUnit.MILLISECONDS.toMinutes(finalTime?.toLong() as Long),
                     TimeUnit.MILLISECONDS.toSeconds(finalTime?.toLong() as Long) -
                             (TimeUnit.MILLISECONDS.toSeconds(TimeUnit.MILLISECONDS.toMinutes(finalTime?.toLong() as Long)))))
-            seekbar?.setProgress(startTime)
+            seekbar?.setProgress(startTime ?: 0)
             Handler().postDelayed(updateSongTime, 1000)
         }
 
@@ -209,7 +209,7 @@ class SongPlayingFragment : Fragment() {
                 Staticated.updateTextViews(currentSongHelper?.songTitle as String, currentSongHelper?.songArtist as String)
                 mediaPlayer?.reset()
                 try {
-                    mediaPlayer?.setDataSource(myActivity, Uri.parse(currentSongHelper?.songPath))
+                    mediaPlayer?.setDataSource(myActivity!!, Uri.parse(currentSongHelper?.songPath))
                     mediaPlayer?.prepare()
                     mediaPlayer?.start()
                     Staticated.processInformaation(mediaPlayer as MediaPlayer)
@@ -352,7 +352,7 @@ class SongPlayingFragment : Fragment() {
             Statified.mediaPlayer = MediaPlayer()
             mediaPlayer?.setAudioStreamType(AudioManager.STREAM_MUSIC)
             try {
-                mediaPlayer?.setDataSource(myActivity, Uri.parse(_path))
+                mediaPlayer?.setDataSource(myActivity!!, Uri.parse(_path))
                 mediaPlayer?.prepare()
 
             } catch (e: Exception) {
@@ -536,7 +536,7 @@ class SongPlayingFragment : Fragment() {
         updateTextViews(currentSongHelper?.songTitle as String, currentSongHelper?.songArtist as String)
         mediaPlayer?.reset()
         try {
-            mediaPlayer?.setDataSource(myActivity, Uri.parse(currentSongHelper?.songPath))
+            mediaPlayer?.setDataSource(myActivity!!, Uri.parse(currentSongHelper?.songPath))
             mediaPlayer?.prepare()
             mediaPlayer?.start()
             processInformaation(mediaPlayer as MediaPlayer)
@@ -597,7 +597,7 @@ class SongPlayingFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when(item?.itemId){
             R.id.action_redirect->{
-                if(!Statified.mediaPlayer?.isPlaying){
+                if(Statified.mediaPlayer?.isPlaying != true){
                     MainScreenFragment.Statified.mediaPlayer?.pause()
                 }
                 else{

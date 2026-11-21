@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Sampled from the original demo video -->
+    <color name="colorPrimary">#000427</color>
+    <color name="colorPrimaryDark">#000320</color>
+    <color name="colorAccent">#f95386</color>
+    <color name="echoOrange">#ec902a</color>
+    <color name="echoPink">#a5375a</color>
+    <color name="listBackground">#fcfcfc</color>
+    <color name="trackTitle">#2b2b2b</color>
+    <color name="trackArtist">#b9b9b9</color>
+    <color name="av_bg">#0b0636</color>
+    <color name="echo_wave1">#a5375a</color>
+    <color name="echo_wave2">#b53a64</color>
+    <color name="echo_wave3">#8f2e57</color>
+    <color name="echo_wave4">#c24470</color>
+    <array name="echo_wave_colors">
+        <item>@color/echo_wave1</item>
+        <item>@color/echo_wave2</item>
+        <item>@color/echo_wave3</item>
+        <item>@color/echo_wave4</item>
+    </array>
+</resources>

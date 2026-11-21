@@ -149,7 +149,7 @@ class FavouritesFragment : Fragment() {
             var fetchListFromDevice = getSongsFromPhone()
             if (fetchListFromDevice != null) {
                 for (j in 0..Statified.listFromDB?.size as Int - 1) {
-                    for (i in 0..fetchListFromDevice?.size - 1) {
+                    for (i in 0..(fetchListFromDevice?.size ?: 0) - 1) {
                         if (((Statified.listFromDB?.get(j)?.songId) == (fetchListFromDevice?.get(i)?.songId))) {
                             if (!(Statified.refreshList?.contains(Statified.listFromDB?.get(j)) as Boolean)) {
                                 Statified.refreshList?.add((Statified.listFromDB as ArrayList<Songs>)[j])

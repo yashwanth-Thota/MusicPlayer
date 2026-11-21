@@ -86,7 +86,7 @@ object Staticated{
             songPlayingFragment.arguments = args
 
             try {
-                Staticated.mediaPlayer?.setDataSource(mContext, Uri.parse(songObject?.songData))
+                Staticated.mediaPlayer?.setDataSource(mContext!!, Uri.parse(songObject?.songData))
                 Staticated.mediaPlayer?.prepare()
 
 

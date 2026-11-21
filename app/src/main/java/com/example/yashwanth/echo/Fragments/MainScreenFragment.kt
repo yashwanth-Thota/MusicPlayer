@@ -233,7 +233,7 @@ class MainScreenFragment : Fragment() {
 
                 })
             }
-            if (SongPlayingFragment.Statified.mediaPlayer?.isPlaying) {
+            if (SongPlayingFragment.Statified.mediaPlayer?.isPlaying == true) {
                 nowPlayingBottomBar?.visibility = View.VISIBLE
                 playPauseButton?.setBackgroundResource(R.drawable.pause_icon)
             } else {
@@ -277,7 +277,7 @@ class MainScreenFragment : Fragment() {
         playPauseButton?.setOnClickListener({
             if (SongPlayingFragment.Statified.mediaPlayer?.isPlaying as Boolean) {
                 SongPlayingFragment.Statified.mediaPlayer?.pause()
-                trackPosition=SongPlayingFragment.Statified.mediaPlayer?.currentPosition
+                trackPosition=SongPlayingFragment.Statified.mediaPlayer?.currentPosition ?: 0
                 playPauseButton?.setBackgroundResource(R.drawable.play_icon)
 
                 playPauseButton?.setBackgroundResource(R.drawable.play_icon)

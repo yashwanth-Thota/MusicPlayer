@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/contentRow" android:layout_width="match_parent" android:layout_height="64dp"
+    android:background="@color/listBackground" android:clickable="true" android:paddingStart="16dp" android:paddingEnd="16dp">
+    <TextView android:id="@+id/trackTitle" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" android:layout_marginTop="12dp" android:ellipsize="end" android:maxLines="1"
+        android:textColor="@color/trackTitle" android:textSize="15sp" />
+    <TextView android:id="@+id/trackArtist" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_below="@id/trackTitle" android:layout_marginTop="2dp" android:ellipsize="end" android:maxLines="1"
+        android:textColor="@color/trackArtist" android:textSize="11sp" />
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_alignParentBottom="true" android:background="#e9e9e9" />
+</RelativeLayout>

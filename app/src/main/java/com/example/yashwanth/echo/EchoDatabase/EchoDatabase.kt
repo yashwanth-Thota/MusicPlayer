@@ -64,7 +64,7 @@ class EchoDatabase:SQLiteOpenHelper{
                     var _artist=cSor.getString(cSor.getColumnIndexOrThrow(Staticated.COLUMN_SONG_ARTIST))
                     var _title=cSor.getString(cSor.getColumnIndexOrThrow(Staticated.COLUMN_SONG_TITLE))
                     var _path=cSor.getString(cSor.getColumnIndexOrThrow(Staticated.COLUMN_SONG_PATH))
-                    if(!Staticated._songList?.contains(Songs(_id.toLong(),_title,_artist,_path,0))){
+                    if(Staticated._songList?.contains(Songs(_id.toLong(),_title,_artist,_path,0)) != true){
                     Staticated._songList.add(Songs(_id.toLong(),_title,_artist,_path,0))}
 
 

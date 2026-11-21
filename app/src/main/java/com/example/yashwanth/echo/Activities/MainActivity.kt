@@ -105,7 +105,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onStop() {
         super.onStop()
         try{
-            if(SongPlayingFragment.Statified.mediaPlayer?.isPlaying){
+            if(SongPlayingFragment.Statified.mediaPlayer?.isPlaying == true){
                 Staticated.notificationManager?.notify(1978,trackNotificationBuilder)
             }
 

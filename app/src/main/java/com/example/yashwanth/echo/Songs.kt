@@ -9,7 +9,7 @@ import com.example.yashwanth.echo.Fragments.SongPlayingFragment
  */
 class Songs( var songId:Long, var songTitle:String,var songArtist:String,var songData:String,var songDate:Long):Parcelable{
 
-    override fun writeToParcel(p0: Parcel?, p1: Int) {
+    override fun writeToParcel(p0: Parcel, p1: Int) {
 
     }
 

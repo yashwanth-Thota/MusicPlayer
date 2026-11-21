@@ -13,3 +13,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Echo"
 include ':app'
+// The Guideflow Android adapter lives next to the web SDK.
+include ':guideflow-android'
+project(':guideflow-android').projectDir = new File(settingsDir, '../universal-walkthrough/packages/android')

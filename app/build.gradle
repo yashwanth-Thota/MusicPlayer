@@ -24,7 +24,13 @@ android {
     }
     kotlinOptions { jvmTarget = '1.8' }
     buildTypes {
-        release { minifyEnabled false }
+        // The Guideflow server the guide asks. 10.0.2.2 is the host Mac as seen from the emulator.
+        // Override for a phone: ./gradlew assembleDebug -PguideflowUrl=http://192.168.x.x:8812
+        debug { buildConfigField "String", "GUIDEFLOW_URL", "\"${project.findProperty('guideflowUrl') ?: 'http://10.0.2.2:8812'}\"" }
+        release {
+            minifyEnabled false
+            buildConfigField "String", "GUIDEFLOW_URL", "\"\"" // no guide in release builds until a server is configured
+        }
     }
     lint { abortOnError false }
 }
@@ -37,4 +43,5 @@ dependencies {
     implementation 'com.android.support:support-v4:26.1.0'
     implementation 'com.cleveroad:audiovisualization:0.9.4'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.7.22'
+    implementation project(':guideflow-android')
 }

@@ -5,14 +5,23 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+// -PguideflowArtifact=com.guideflow:guideflow-android:0.2.0 consumes the published library from ~/.m2 instead of the sibling
+// source folder. Publish it there first (run without the property): ./gradlew :guideflow-android:publishToMavenLocal
+def guideflowArtifact = providers.gradleProperty('guideflowArtifact').orNull
 dependencyResolutionManagement {
     repositories {
+        // Artifact build only, and only for the com.guideflow group.
+        if (guideflowArtifact) {
+            mavenLocal { content { includeGroup 'com.guideflow' } }
+        }
         google()
         mavenCentral()
     }
 }
 rootProject.name = "Echo"
 include ':app'
-// The Guideflow Android adapter lives next to the web SDK.
-include ':guideflow-android'
-project(':guideflow-android').projectDir = new File(settingsDir, '../universal-walkthrough/packages/android')
+// The Guideflow Android adapter lives next to the web SDK. Default: build it from source (local development).
+if (!guideflowArtifact) {
+    include ':guideflow-android'
+    project(':guideflow-android').projectDir = new File(settingsDir, '../universal-walkthrough/packages/android')
+}
